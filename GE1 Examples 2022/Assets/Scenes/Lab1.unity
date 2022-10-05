@@ -248,8 +248,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loops: 10
   prefab: {fileID: 6796226938451248921, guid: e02a24cae357f9648a1d81a9ce64a64f, type: 3}
-  numberofDodecahedrons: 6
-  radius: 1
+  circumference: 0
+  radius: 0
 --- !u!4 &1181079926
 Transform:
   m_ObjectHideFlags: 0
