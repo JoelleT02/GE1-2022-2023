@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7112599285265109510}
   - component: {fileID: 4995037431661881036}
   - component: {fileID: 6790624616365117173}
+  - component: {fileID: 730453062659067602}
   m_Layer: 0
   m_Name: Dodecahedron
   m_TagString: Untagged
@@ -96,4 +97,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a800db9b206ab0c4fa1cb3bd82a47102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 90
+  speed: 50
+--- !u!114 &730453062659067602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6796226938451248921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c681141dc7e9f5b4090b556d084099c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 0}
+  colours: []
