@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Fish : MonoBehaviour
 {
     private GameObject fishBody;
@@ -15,6 +14,18 @@ public class Fish : MonoBehaviour
     private Material bodyMat;
     private Material headMat;
     private Material tailMat;
+
+    [Range(0.1f, 20f)] 
+    public float frequency; //speed
+
+    public int headAmplitude; //head highest & lowest point
+    public int tailAmplitude; //tail highest & lowest point
+    public float theta;
+
+    private float headMovement;
+    private float tailMovement;
+
+
 
     private void Start()
     {
@@ -40,11 +51,27 @@ public class Fish : MonoBehaviour
         fishBody.transform.localScale = new Vector3(2, 1, 1);
         fishHead.transform.localScale = new Vector3(2, 1, 1);
         fishTail.transform.localScale = new Vector3(2, 1, 1);
-        
-        
+
+        fishHead.transform.position = new Vector3(2, 0, 0);
+        fishTail.transform.position = new Vector3(-2, 0, 0);
+
+
         //setting the parents
-        fishBody.transform.SetParent(fish, false);
-        fishHead.transform.SetParent(head, false);
-        fishTail.transform.SetParent(tail, false);
+        fishBody.transform.SetParent(fish);
+        fishHead.transform.SetParent(head);
+        fishTail.transform.SetParent(tail);
     }
+
+    
+    private void Update()
+    {
+        theta += Time.deltaTime * frequency;
+        headMovement = headAmplitude * (Mathf.Sin(theta));
+        tailMovement = tailAmplitude * (Mathf.Sin(theta) * -1);
+        head.transform.localRotation = Quaternion.AngleAxis(headMovement, Vector3.forward);
+        tail.localRotation = Quaternion.AngleAxis(tailMovement * -1, Vector3.forward);
+    }
+    
+    
+    
 }
