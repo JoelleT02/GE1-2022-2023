@@ -16,6 +16,11 @@ public class AITank : MonoBehaviour {
     private float c;
     private float angle;
     private Vector3 pos;
+    private Vector3 nextWaypoint;
+    private float waypointDistance;
+    private Vector3 destination;
+    private Vector3 playerDistance;
+    
 
     public void OnDrawGizmos()
     {
@@ -61,6 +66,25 @@ public class AITank : MonoBehaviour {
         // Task 3
         // Put code here to move the tank towards the next waypoint
         // When the tank reaches a waypoint you should advance to the next one
+        pos = transform.position;
+        nextWaypoint = waypoints[current] - pos;
+        waypointDistance = nextWaypoint.magnitude;
+
+        if (waypointDistance < 1f)
+        {
+            current += 1 % waypoints.Count;
+
+            if (current >= 5f)
+            {
+                current = 0;
+                return;
+            }
+        }
+
+        destination = nextWaypoint / waypointDistance;
+
+        transform.position = Vector3.Lerp(transform.position, waypoints[current], Time.deltaTime);
+        transform.rotation = Quaternion.LookRotation(nextWaypoint, Vector3.up);
 
 
         // Task 4
