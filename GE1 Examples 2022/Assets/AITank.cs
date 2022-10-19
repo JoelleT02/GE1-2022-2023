@@ -18,8 +18,10 @@ public class AITank : MonoBehaviour {
     private Vector3 pos;
     private Vector3 nextWaypoint;
     private float waypointDistance;
-    private Vector3 destination;
     private Vector3 playerDistance;
+    public float dot;
+    public float FOV;
+    private Quaternion targetRotation;
     
 
     public void OnDrawGizmos()
@@ -41,7 +43,8 @@ public class AITank : MonoBehaviour {
                 Gizmos.color = Color.red;
                 Gizmos.DrawWireSphere(pos, 1);
             }
-            // Task 1 complete :)
+            
+            player = GameObject.FindWithTag("Player").transform;
         }
     }
 
@@ -58,7 +61,6 @@ public class AITank : MonoBehaviour {
             pos = transform.TransformPoint(new Vector3(x, 0.5f, z));
             waypoints.Add(pos);
         }
-        //Task 2 complete :)
     }
 
     // Update is called once per frame
@@ -81,17 +83,39 @@ public class AITank : MonoBehaviour {
             }
         }
 
-        destination = nextWaypoint / waypointDistance;
-
         transform.position = Vector3.Lerp(transform.position, waypoints[current], Time.deltaTime);
-        transform.rotation = Quaternion.LookRotation(nextWaypoint, Vector3.up);
+        targetRotation = Quaternion.LookRotation(nextWaypoint, Vector3.up);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime);
 
 
         // Task 4
-        // Put code here to check if the player is in front of or behine the tank
+        // Put code here to check if the player is in front of or behind the tank
+        playerDistance = player.position - transform.position;
+        dot = Vector3.Dot(transform.forward, playerDistance.normalized);
+          
+        
+        if (dot > 0)
+        {
+            GameManager.Log("Player is in front of the AI Tank");
+        }
+        else
+        {
+            GameManager.Log("Player is behind the AI Tank");
+        }
+        
         // Task 5
         // Put code here to calculate if the player is inside the field of view and in range
-        // You can print stuff to the screen using:
-        GameManager.Log("Hello from th AI tank");
+        FOV = Vector3.Angle(playerDistance, transform.forward);
+
+        if (FOV < 45)
+        {
+            GameManager.Log("Player is inside the field of view");
+        }
+
+        if (playerDistance.magnitude < 10)
+        {
+            GameManager.Log("Player is in range");
+        }
+
     }
 }
