@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.tag = "Bullet";
         GameObject.Destroy(this.gameObject, 30);
         seed = Random.Range(1000, 2000);
     }
@@ -19,7 +20,6 @@ public class Bullet : MonoBehaviour
             GameObject.Destroy(this.gameObject);
             GameObject.Destroy(collision.gameObject);
             Debug.Log("Explosion");
-
         }
     }
 
