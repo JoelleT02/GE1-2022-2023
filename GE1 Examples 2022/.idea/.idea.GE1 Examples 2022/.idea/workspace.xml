@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f358e15-74fe-4beb-94d1-93e424fbe943" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/BlueMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BlueMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1 Examples 2022/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1 Examples 2022/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1 Examples 2022/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1 Examples 2022/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lab7.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Lab7.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TurretController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TurretController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +73,7 @@
       <workItem from="1667495248253" duration="2353000" />
       <workItem from="1667498033862" duration="4599000" />
       <workItem from="1668620335354" duration="3222000" />
+      <workItem from="1668623789540" duration="5212000" />
     </task>
     <servers />
   </component>
@@ -92,6 +92,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
