@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/modules.xml
+/contentModel.xml
+/.idea.GE1 Examples 2022.iml
+# Datasource local storage ignored files
+/../../../../../../../../:\Users\user\GE1-2022-2023\GE1 Examples 2022\.idea\.idea.GE1 Examples 2022\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
