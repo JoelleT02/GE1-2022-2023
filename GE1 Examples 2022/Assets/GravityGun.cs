@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GravityGun : MonoBehaviour
 {
@@ -11,9 +12,11 @@ public class GravityGun : MonoBehaviour
     GameObject pickedUp = null;
     Transform camera;
 
-    public bool isPhisGun = false;
+    public bool isPhisGun;
 
     public Texture2D crosshairImage;
+
+    public Text physicsGun;
 
     void OnGUI()
     {
@@ -32,6 +35,9 @@ public class GravityGun : MonoBehaviour
         {
             camera = Camera.main.transform;
         }
+
+        isPhisGun = false;
+
     }
 
     // Update is called once per frame
@@ -69,5 +75,29 @@ public class GravityGun : MonoBehaviour
         {
             pickedUp = null;
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            PhysicsGun();
+        }
+
+        if (isPhisGun)
+        {
+            physicsGun.text = "Is physics gun";
+        }
+
+        else
+        {
+            physicsGun.text = "Is not physics gun";
+        }
+    }
+
+    private void PhysicsGun()
+    {
+        isPhisGun = isPhisGun switch
+        {
+            true => false,
+            false => true,
+        };
     }
 }

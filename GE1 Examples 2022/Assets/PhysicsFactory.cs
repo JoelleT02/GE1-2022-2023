@@ -1,12 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class PhysicsFactory : MonoBehaviour {
 
     public LayerMask groundLM;
     public GameObject wormPrefab;
+    private float c;
+    private float angle;
+    private float x;
+    private float z;
+    private Vector3 pos;
+    private GameObject towerBrick;
     void CreateTower(float radius, int height, int segments, Vector3 point)
     {
+        for (var h = 0; h < height; h++)
+        {
+            for (var s = 0; s < segments; s++)
+            {
+                c = Mathf.PI * 2 / segments;
+                angle = c * s - (h * c);
+                x = Mathf.Sin(angle) * radius;
+                z = Mathf.Cos(angle) * radius;
+                pos = point + new Vector3(x, h, z);
+                towerBrick = CreateBrick(pos.x, pos.y, pos.z);
+                towerBrick.transform.rotation = Quaternion.AngleAxis (angle * Mathf.Rad2Deg, Vector3.up);
+                towerBrick.GetComponent<Renderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 1f, 1f);
+
+
+            }
+        }
     }
 
     
