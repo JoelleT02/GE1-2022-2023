@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class AudioViz3 : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class AudioViz3 : MonoBehaviour
 
         for(int i = 0; i < frameSize; i ++)
         {
-            GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            GameObject go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             Vector3 pos = new Vector3((i - (frameSize / 2)) * 1.5f, 0, 0);
             go.transform.position = transform.TransformPoint(pos);
             blocks[i] = go;
@@ -60,5 +61,6 @@ public class AudioViz3 : MonoBehaviour
         lerpedAverage = Mathf.Lerp(lerpedAverage, average, Time.deltaTime * 4);
 
         bigCube.localScale = new Vector3(lerpedAverage, lerpedAverage, lerpedAverage) * scale;
+        bigCube.Rotate(Vector3.back, lerpedAverage * 4, Space.World);
     }
 }
